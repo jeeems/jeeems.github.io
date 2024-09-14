@@ -128,3 +128,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', onScroll);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const fadeInSections = document.querySelectorAll('.fade-in-section');
+    
+    const fadeInOptions = {
+        threshold: 0.5
+    };
+
+    const fadeInObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, fadeInOptions);
+
+    fadeInSections.forEach(section => {
+        fadeInObserver.observe(section);
+    });
+});
