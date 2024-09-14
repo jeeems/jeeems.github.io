@@ -150,3 +150,58 @@ document.addEventListener('DOMContentLoaded', function() {
         fadeInObserver.observe(section);
     });
 });
+
+
+/// Load EmailJS SDK
+(function() {
+    emailjs.init("zAO26tE049kwk--1M"); // Replace with your User ID from the Account page
+})();
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const form = this;
+    
+    // Log form data for debugging
+    console.log('Form data:', {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value
+    });
+
+    // Prepare the template parameters
+    const templateParams = {
+        subject: "A person wants to connect with you from your website",
+        to_email: "jemuel.olaybar@gmail.com", // Your email
+        to_name: "Jemuel Olaybar",
+        from_name: form.name.value,
+        from_email: form.email.value,
+        message: form.message.value
+    };
+
+    // Log template parameters for debugging
+    console.log('Template parameters:', templateParams);
+
+    // Send email to you
+    emailjs.send("service_4d5sfeb", "email_to_jem", templateParams)
+    .then(function(response) {
+        console.log('Email sent to you successfully', response);
+       
+        // Send auto-reply to sender's email
+        return emailjs.send("service_4d5sfeb", "auto_reply", {
+            to_name: form.name.value,
+            to_email: form.email.value, // This sends the auto-reply to the form submitter's email
+            from_name: "Jemuel Olaybar",  // Your name
+            from_email: "jemuel.olaybar@gmail.com",  // Your email
+            reply_message: "Thank you for contacting me. I will get back to you soon."
+        });
+    })
+    .then(function(response) {
+        console.log('Auto-reply sent successfully', response);
+        alert('Your message has been sent successfully. Thank you for contacting me!');
+        form.reset();
+    })
+    .catch(function(error) {
+        console.error('Error:', error);
+        alert('Oops! There was an error sending your message. Please try again later.');
+    });
+});
