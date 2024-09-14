@@ -1,0 +1,369 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif; /* Apply Raleway font */
+    overflow-x: hidden;
+    background-color: #f8f9fa;
+}
+
+/* Fixed Navbar */
+.navbar {
+    z-index: 1030; /* Ensure navbar is above other content */
+}
+
+/* Adjust for fixed navbar */
+.hero-section {
+    height: 95vh;
+    background-color: #f8f9fa;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* position: relative; */
+    /* margin-top: 50px; Offset for fixed navbar */
+    gap: 20px; /* Adjust this value to control the space between the image and text */
+    padding: 20px; /* Add padding if needed */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    text-align: center; /* Align text to the left */
+    
+}
+
+.hero-image {
+    flex: 1; /* Ensures the image container takes up space */
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+}
+
+.hero-text {
+    max-width: 600px; /* Optional: limit the width of the text block */
+}
+
+.hero-text h1 {
+    margin: 0; /* Remove default margins */
+    font-size: 2.5rem; /* Adjust font size as needed */
+}
+
+.hero-text p {
+    margin-top: 10px; /* Space between heading and paragraph */
+    font-size: 1.25rem; /* Adjust font size as needed */
+}
+
+.hero-image img {
+    max-width: 50%; /* Ensure the image fits within its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 100%; /* Optional: If you want the image to be circular */
+}
+
+.hero-image-container {
+    width: 400px;
+    height: 400px;
+    overflow: hidden; /* Hide anything outside the container */
+    position: relative; /* For absolute positioning of the image */
+    border-radius: 50%; /* Make the container circular */
+    display: flex; /* Center the image inside */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    margin-right: 40px;
+}
+
+.hero-image-container img {
+    width: 103%; /* Zoom out by increasing width */
+    height: auto;
+    object-fit: cover;
+    object-position: top center; /* Position the image to show the face */
+    transform: translateY(10%); /* Move the image down slightly to center the face */
+}
+
+
+
+/* Adjust position of "Hi" and "I'm Jemuel" */
+.hero-content h1 {
+    font-size: 2.5rem; /* Adjust font size as needed */
+    margin: 0; /* Remove default margin */
+    font-weight: bolder;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+}
+
+.hero-content h5 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Button and Social Icons Styles */
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+}
+
+.download-btn {
+    padding: 10px 20px;
+    border: 2px solid #000;
+    border-radius: 50px;
+    background-color: transparent;
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.social-icon {
+    font-size: 32px;
+    color: #000;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.social-icon .fa-linkedin {
+    color: #000; /* LinkedIn brand color */
+}
+
+.social-icon .fa-square-github {
+    color: #000; /* GitHub dark color */
+}
+
+
+
+
+/* Navbar */
+.navbar {
+    height: 60px; /* Set a fixed height */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#brand-text {
+    font-weight: bold;
+    color: #000;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    transition: letter-spacing 0.3s ease;
+    line-height: 1; /* Ensure consistent line height */
+}
+
+#brand-text.initial {
+    font-size: 1.5rem;
+    letter-spacing: 0.15em;
+    padding-left: 15px; /* Add left padding for "JO" */
+}
+
+#brand-text.expanded {
+    font-size: 1rem;
+    letter-spacing: normal;
+    padding-left: 0px;
+}
+
+/* Container for brand text to maintain consistent width */
+.brand-text-container {
+    display: inline-block;
+    width: 200px; /* Adjust this value based on your needs */
+    text-align: left;
+}
+
+/* Dropdown styles */
+.navbar-nav .dropdown-menu {
+    background-color: #f8f9fa; /* Light gray background */
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: #e9ecef; /* Slightly darker on hover */
+}
+
+/* Active state for navbar items */
+.navbar-nav .nav-item .nav-link.active {
+    font-weight: bold;
+    color: #000; /* Bootstrap primary color */
+}
+
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px); /* Start below the original position */
+    animation: fadeInUp 1s ease forwards; /* Trigger animation */
+}
+
+.fade-in:nth-of-type(1) {
+    animation-delay: 0.3s; /* Delay for name */
+}
+
+.fade-in:nth-of-type(2) {
+    animation-delay: 0.6s; /* Delay for position */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Move to original position */
+    }
+}
+
+
+/* Back-to-Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* Initially hidden */
+    width: 40px; /* Size of the button */
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px; /* Vertically center the arrow */
+    text-align: center; /* Horizontally center the arrow */
+    border-radius: 50%; /* Circular shape */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+    cursor: pointer;
+    transform: rotate(0deg); /* No rotation initially */
+}
+
+/* Hover effect for the button */
+#back-to-top:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-10px); /* Translate button up smoothly */
+}
+
+/* Smooth the text translation and make it independent */
+#back-to-top::before {
+    content: "⇧"; /* Arrow content */
+    display: block;
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth the text animation */
+}
+
+/* Hover effect for the arrow (text) */
+#back-to-top:hover::before {
+    transform: translateY(-10px); /* Move the arrow up on hover */
+    color: #fff; /* Ensure text color remains unchanged */
+}
+
+/* Show button when scrolling */
+#back-to-top.show {
+    display: block;
+}
+
+/* Smooth scrolling effect */
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        height: 50px; /* Slightly smaller height for mobile */
+    }
+    #brand-text.initial {
+        font-size: 1.2rem;
+        padding-left: 10px; /* Slightly less padding on mobile */
+    }
+    .navbar-brand {
+        max-width: 70%;
+    }
+    #brand-text {
+        font-size: 1.2rem;
+    }
+    #brand-text.expanded {
+        font-size: 1.2rem;
+    }
+    .brand-text-container {
+        width: 150px; /* Adjust for mobile */
+    }
+    .button-container {
+        flex-direction: column;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-image-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 250px;
+        height: 250px;
+    }
+
+    .hero-image-container img {
+        width: 100%;
+        height: auto;
+        object-position: center;
+        transform: translateY(-10); /* No translation on smaller screens */
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Projects Section */
+.card {
+    margin: 20px 0;
+}
+
+#about img {
+    border-radius: 10px;
+}
