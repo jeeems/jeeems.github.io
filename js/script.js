@@ -1,4 +1,7 @@
 window.addEventListener('load', function() {
+     // Force the window to scroll to the top of the page on load
+    window.scrollTo(0, 0);
+    
     const brandText = document.getElementById('brand-text');
 
     function triggerAnimation() {

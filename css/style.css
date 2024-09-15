@@ -467,7 +467,7 @@ html {
 /* Responsive adjustments for tablets and medium devices */
 @media (max-width: 768px) {
     .navbar {
-        height: 50px;
+        height: 55px;
     }
 
     #brand-text.initial {
@@ -531,7 +531,7 @@ html {
 /* Small screens (phones) */
 @media (max-width: 480px) {
     .navbar {
-        height: 45px;
+        height: 55px;
     }
 
     .hero-image-container {
@@ -548,7 +548,7 @@ html {
     }
 
     .button-container {
-        flex-direction: column;
+        flex-direction: row;
         gap: 8px;
     }
 }
