@@ -27,20 +27,28 @@ window.addEventListener('load', function() {
         document.body.style.backgroundColor = `rgb(${red + 245}, ${green + 245}, ${blue + 245})`; // Off-white background interaction
     });
 
-    // Back-to-Top Button Functionality
-    const backToTopButton = document.getElementById('back-to-top');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) { // Show button after scrolling 300px
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        // Show button when scrolled 300px down, hide when at the top
+        if (window.scrollY > 300) {
             backToTopButton.classList.add('show');
         } else {
             backToTopButton.classList.remove('show');
         }
     });
-
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
+    
+    document.getElementById('back-to-top').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Hide the button immediately after clicking to scroll to top
+        const backToTopButton = document.getElementById('back-to-top');
+        setTimeout(() => {
+            backToTopButton.classList.remove('show');
+        }, 600); // Adjust the timeout to match the scroll duration
     });
+    
 });
 
 
@@ -153,6 +161,56 @@ document.addEventListener('DOMContentLoaded', function() {
         fadeInObserver.observe(section);
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.photo-carousel');
+    const images = carousel.querySelectorAll('.carousel-img');
+    const prevBtn = carousel.querySelector('.prev-btn');
+    const nextBtn = carousel.querySelector('.next-btn');
+    let currentIndex = 0;
+
+    // Create shadow overlays
+    const leftShadow = document.createElement('div');
+    leftShadow.classList.add('shadow-overlay', 'left');
+    const rightShadow = document.createElement('div');
+    rightShadow.classList.add('shadow-overlay', 'right');
+    carousel.appendChild(leftShadow);
+    carousel.appendChild(rightShadow);
+
+    function showImage(index) {
+        images[currentIndex].classList.remove('active');
+        images[index].classList.add('active');
+        currentIndex = index;
+    }
+
+    function nextImage() {
+        let nextIndex = (currentIndex + 1) % images.length;
+        showImage(nextIndex);
+    }
+
+    function prevImage() {
+        let prevIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(prevIndex);
+    }
+
+    nextBtn.addEventListener('click', nextImage);
+    prevBtn.addEventListener('click', prevImage);
+
+    // Add hover effects
+    prevBtn.addEventListener('mouseenter', () => leftShadow.style.opacity = '1');
+    prevBtn.addEventListener('mouseleave', () => leftShadow.style.opacity = '0');
+    nextBtn.addEventListener('mouseenter', () => rightShadow.style.opacity = '1');
+    nextBtn.addEventListener('mouseleave', () => rightShadow.style.opacity = '0');
+});
+
+document.getElementById("downloadLink").addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent default link behavior
+    const userConfirmed = confirm("Do you want to download the Taskmate APK?");
+    if (userConfirmed) {
+        window.location.href = "files/[APK FILE] Taskmate.apk"; // Link to your APK file
+    }
+});
+
 
 
 // Load EmailJS SDK

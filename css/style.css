@@ -306,26 +306,230 @@ body {
 }
 
 
+/* Certificate Image Styling */
+.card-img-top {
+    object-fit: cover;
+    position: relative; /* Ensure proper stacking context */
+    width: 100%; /* Makes the image responsive */
+    max-height: 200px; /* Ensures the max height does not exceed 200px */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    border-bottom: 1px solid #ddd; /* Add border to separate image and content */
+    filter: brightness(0.9) contrast(1.1) drop-shadow(0 4px 8px rgba(0,0,0,0.5)) inset(0 0 15px rgba(0,0,0,0.6)); /* Vignette effect with shadow */
+    transition: transform 0.3s ease;
+    z-index: 1; /* Ensure the shadow is below the image */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Vignette effect */
+.card-img-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none; /* Allow clicking through */
+    z-index: 2; /* Above the image */
+}
+
+/* Zoom effect on image when hovering on card */
+.card:hover .card-img-top {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+
+/* Optional: Add a bit of shadow to the card itself */
+.card {
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    justify-content: space-between; /* Distribute space evenly */
+    height: 85%; /* Ensure the card takes up full height */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+/* Ensure card body fills the remaining space and text is aligned properly */
+.card-body {
+    position: relative;
+    padding: 1rem;
+    flex-grow: 1; /* Grow card body to fill available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-body p{
+    text-align: justify;
+}
+
+
+/* Modal Styles */
+.modal-xl {
+    max-width: 90%; /* Adjust for larger modals */
+}
+
+.modal-body {
+    padding: 0; /* Remove padding to let the iframe fill the modal body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Use viewport height to make the modal responsive */
+}
+
+.iframe-container {
+    width: 100%;
+    height: 100%;
+    max-width: 400px; /* Set a max width to fit smaller screens */
+    max-height: 700px; /* Set a max height for the emulator */
+    border: none;
+    object-fit: contain; /* Ensures the content is contained properly */
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    max-width: 400px; /* Set a max width to fit smaller screens */
+    max-height: 700px; /* Set a max height for the emulator */
+    border: none;
+    object-fit: contain; /* Ensures the content is contained properly */
+}
+
+.modal-dialog {
+    max-width: 80%; /* Adjust modal width to be larger */
+    margin: auto;
+}
+
+.modal-body-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-body-image {
+    flex: 0 0 60%; /* Takes up 60% of the container width */
+    max-width: 60%; /* Ensures it doesn't grow beyond 60% */
+    
+}
+
+.modal-body-image img {
+    width: 100%; /* Ensures the image scales to fit the container */
+    height: auto; /* Maintains aspect ratio */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Optional: Shadow on the image */
+    border-radius: 8px; /* Optional: Rounded corners for the image */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+}
+
+.modal-body-text {
+    flex: 1;
+    max-width: 350px; /* Ensures the text container doesn't grow too large */
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers text vertically */
+    align-items: center; /* Centers text horizontally */
+    text-align: center;
+    padding: 0 15px; /* Add some padding on the sides */
+}
+
+.modal-header h5 {
+    font-weight: bold;
+}
+
+.modal-body-text h6 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.modal-body-text p {
+    margin: 0;
+    text-align: justify;
+}
+
+
+
+/* Responsive Modal Image */
+.modal-body img {
+    max-width: 75%; /* Ensures the image takes up 50% of the modal */
+    height: auto; /* Maintains aspect ratio */
+}
+
+/* Details section in the modal */
+.modal-body .details {
+    flex-grow: 1; /* Takes up remaining space */
+}
+
+.details h5 {
+    font-weight: bold;
+}
+
+.modal-body .details {
+    margin-left: 20px;
+}
+
+.details h5 {
+    font-weight: bold;
+}
+
+/* Remove text decoration and link color from clickable card */
+.card-link {
+    text-decoration: none;
+    color: inherit; /* Keep original color */
+}
+
+.card-link:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+    color: inherit; /* Maintain original color on hover */
+}
+
+/* Remove text decoration from card-title and card-text */
+.card-title,
+.card-text {
+    text-decoration: none; /* No underline */
+    color: inherit; /* Keep the text color */
+}
+
+.card-title{
+    font-weight: bold;
+}
+
+/* Styles for the modal header */
+.modal-header .small-text {
+    font-size: 0.9rem; /* Makes the font a little smaller */
+    margin-top: 5px;   /* Adds a small space between the h5 and p */
+    color: #6c757d;    /* Optional: Changes the color to a lighter shade */
+}
+
+
+
+
 /* Back-to-Top Button */
 #back-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
     display: none; /* Initially hidden */
-    width: 40px; /* Size of the button */
-    height: 40px;
+    width: 45px; /* Size of the button */
+    height: 45px;
     font-size: 20px;
     line-height: 40px; /* Vertically center the arrow */
     text-align: center; /* Horizontally center the arrow */
+    justify-content: center;
     border-radius: 50%; /* Circular shape */
     background-color: #007bff; /* Bootstrap primary color */
     color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     border: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 999;
+    z-index: 1000;
     cursor: pointer;
     transform: rotate(0deg); /* No rotation initially */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Hover effect for the button */
@@ -336,7 +540,7 @@ body {
 
 /* Smooth the text translation and make it independent */
 #back-to-top::before {
-    content: "⇧"; /* Arrow content */
+    content: "⇧";
     display: block;
     transition: transform 0.3s ease, color 0.3s ease; /* Smooth the text animation */
 }
@@ -350,6 +554,12 @@ body {
 /* Show button when scrolling */
 #back-to-top.show {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#back-to-top.hide {
+    opacity: 0;
 }
 
 /* Smooth scrolling effect */
@@ -439,6 +649,86 @@ html {
     transition: font-size 0.4s ease-in-out;
 }
 
+#about p {
+    text-align: justify;
+    margin-bottom: 1.5em; /* Adjust spacing between paragraphs */
+    padding: 0 0px; /* Optional: Add horizontal padding for better readability */
+}
+
+.photo-carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-img.active {
+    opacity: 1;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 48px;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.shadow-overlay {
+    position: absolute;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.shadow-overlay.left {
+    left: 0;
+}
+
+.shadow-overlay.right {
+    right: 0;
+    background: linear-gradient(to left, rgba(0,0,0,0.5), transparent);
+}
+
 
 /* Responsive adjustments for larger screens */
 @media (max-width: 1200px) {
@@ -526,6 +816,61 @@ html {
         object-position: center;
         transform: translateY(-10); /* No translation on smaller screens */
     }
+
+    #about p {
+        margin-bottom: 1em; /* Adjust spacing between paragraphs */
+    }
+
+    .modal-body-container {
+        flex-direction: column; /* Stack image and text vertically on small screens */
+        align-items: center; /* Center content horizontally */
+    }
+
+    .modal-body-image,
+    .modal-body-text {
+        flex: 0 0 100%; /* Full width on small screens */
+        max-width: 100%; /* Ensures no overflow */
+        text-align: justify;
+    }
+
+    .modal-body-image {
+        margin-bottom: 20px; /* Space between image and text */
+        display: flex; /* Ensure image is centered */
+        justify-content: center; /* Center the image */
+    }
+
+    .modal-xl {
+        max-width: 85%; /* Full-width modal for smaller screens */
+    }
+
+    .iframe-container{
+        justify-content: center; /* Center the image */
+        align-items: center;
+        align-content: center;
+    }
+
+    .iframe-container iframe {
+        max-width: 100%; /* Ensure it fits within the modal on mobile */
+        max-height: 100%; /* Ensure it scales within the modal */
+        justify-content: center; /* Center the image */
+        padding-left: 20px;
+        padding-top: 10px;
+        align-items: center;
+        align-content: center;
+    }
+
+
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) { /* Adjust breakpoint as needed */
+    #back-to-top {
+        width: 40px; /* Adjust for smaller screens */
+        height: 40px; /* Adjust for smaller screens */
+        font-size: 20px; /* Adjust font size for smaller screens */
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 /* Small screens (phones) */
@@ -551,6 +896,14 @@ html {
         flex-direction: row;
         gap: 8px;
     }
+
+    #back-to-top {
+        width: 40px; /* Adjust for smaller screens */
+        height: 40px; /* Adjust for smaller screens */
+        font-size: 20px; /* Adjust font size for smaller screens */
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 
@@ -562,3 +915,5 @@ html {
 #about img {
     border-radius: 10px;
 }
+
+

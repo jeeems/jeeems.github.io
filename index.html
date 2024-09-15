@@ -70,16 +70,36 @@
     <!-- About Me Section -->
     <section id="about" class="container my-5 fade-in-section">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <h2>About Me</h2>
                 <p>
                     I'm a passionate web and mobile developer with expertise in creating interactive and responsive web applications. 
-                    I have experience in JavaScript, HTML, CSS, and various frontend technologies like Bootstrap.
+                    I have experience in JavaScript, HTML, CSS, and a solid understanding of programming languages such as Java, Python, C++, PHP, and other various frontend technologies.
+                </p>
+                <p>
+                    In my recent internship at Intel Corporation, I worked as a full-stack software developer intern, where I contributed to various stages of the software development lifecycle, gaining invaluable industry experience. Additionally, I developed Taskmate, a mobile application that connects home service professionals with clients, showcasing my ability to build practical solutions using my technical skills.
                 </p>
             </div>
-            <div class="col-md-6">
-                <!-- Image or personal photo -->
-                <img src="https://via.placeholder.com/400" alt="My Photo" class="img-fluid">
+            <div class="col-lg-6">
+                <div class="photo-carousel">
+                    <div class="carousel-container">
+                        <div class="photo-frame active">
+                            <img src="img/me.jpg" alt="Myphoto" class="carousel-img active">
+                        </div>
+                        <div class="photo-frame">
+                            <img src="img/interns.jpg" alt="Another photo" class="carousel-img">
+                        </div>
+                        <div class="photo-frame">
+                            <img src="img/demo.jpg" alt="Yet another photo" class="carousel-img">
+                        </div>
+                        <div class="photo-frame">
+                            <img src="img/coding.jpg" alt="Yet another photo" class="carousel-img">
+                        </div>
+                        <!-- Add more images as needed -->
+                    </div>
+                    <button class="carousel-btn prev-btn">&lt;</button>
+                    <button class="carousel-btn next-btn">&gt;</button>
+                </div>
             </div>
         </div>
     </section>
@@ -88,37 +108,193 @@
     <section id="projects" class="container my-5 fade-in-section">
         <h2>Projects</h2>
         <div class="row">
-            <!-- Example Project -->
+            <!-- Example Project 1 -->
             <div class="col-md-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Project 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Project Title</h5>
-                        <p class="card-text">Brief description of the project.</p>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal1" class="card-link">
+                    <div class="card" style="height: 100%;">
+                        <img src="img/taskmate-logo.jpg" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Taskmate</h5>
+                            <p class="card-text">Taskmate is an innovative mobile application designed to bridge the gap between home service providers and clients within the community. The app offers a seamless platform where users can easily find and connect with trusted professionals for various home services such as cleaning, plumbing, electrical repairs, and more. By leveraging a user-friendly interface, Taskmate streamlines the process of booking services, managing appointments, and making secure payments. The app aims to enhance convenience and reliability for both service providers and clients, fostering a stronger and more connected community.</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <!-- Add more project cards as needed -->
         </div>
     </section>
 
+    <!-- Project Modals -->
+    <!-- Project Modal 1 -->
+    <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="header-content">
+                        <h5 class="modal-title" id="projectModalLabel1">Taskmate Live Demo</h5>
+                        <p class="small-text">Emulator doesn't work? Download apk 
+                            <a href="#" id="downloadLink">[here]</a>.
+                        </p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Embed from Appetize.io -->
+                    <div class="iframe-container">
+                        <iframe src="https://appetize.io/embed/b_pjtiuckkr3vzki4xt45vqdzlfq?autoplay=true" 
+                                width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel1">Taskmate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-container">
+                        <div class="modal-body-image">
+                            <img src="https://via.placeholder.com/350x200" alt="Taskmate Image">
+                        </div>
+                        <div class="modal-body-text">
+                            <h6>Taskmate</h6>
+                            <p>Taskmate is an innovative mobile application designed to bridge the gap between home service providers and clients within the community. The app offers a seamless platform where users can easily find and connect with trusted professionals for various home services such as cleaning, plumbing, electrical repairs, and more. By leveraging a user-friendly interface, Taskmate streamlines the process of booking services, managing appointments, and making secure payments. The app aims to enhance convenience and reliability for both service providers and clients, fostering a stronger and more connected community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
     <!-- Certificates Section -->
     <section id="certificates" class="container my-5 fade-in-section">
         <h2>Certificates</h2>
         <div class="row">
-            <!-- Example Certificate -->
+            <!-- Example Certificate 1 -->
             <div class="col-md-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Certificate 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Certificate Title</h5>
-                        <p class="card-text">Description of the certificate or achievement.</p>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#certificateModal1" class="card-link">
+                    <div class="card">
+                        <img src="img/CSS National Certificate II.jpg" class="card-img-top" alt="Certificate 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Computer Systems Servicing National Certificate II</h5>
+                            <!-- <p class="card-text">Description of the certificate or achievement.</p> -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Example Certificate 2 -->
+            <div class="col-md-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#certificateModal2" class="card-link">
+                    <div class="card">
+                        <img src="img/HackerRank Software Engineer Intern Certificate.jpg" class="card-img-top" alt="Certificate 2">
+                        <div class="card-body">
+                            <h5 class="card-title">HackerRank Software Engineer Intern</h5>
+                            <!-- <p class="card-text">Description of the certificate or achievement.</p> -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Example Certificate 3 -->
+            <div class="col-md-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#certificateModal3" class="card-link">
+                    <div class="card">
+                        <img src="img/HackerRank Problem Solving Basic.jpg" class="card-img-top" alt="Certificate 3">
+                        <div class="card-body">
+                            <h5 class="card-title">HackerRank Problem Solving Basic</h5>
+                            <!-- <p class="card-text">Description of the certificate or achievement.</p> -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Modal 1 -->
+    <div class="modal fade" id="certificateModal1" tabindex="-1" aria-labelledby="certificateModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModalLabel1">Computer Systems Servicing National Certificate II</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-container">
+                        <div class="modal-body-image">
+                            <img src="img/CSS National Certificate II.jpg" alt="Certificate Image">
+                        </div>
+                        <div class="modal-body-text">
+                            <p>
+                                I participated in this training program from October 2023, which lasted for five months. It was an incredibly enjoyable experience due to the supportive and engaging training environment. This training stands out as one of the best I have ever attended, providing both valuable knowledge and memorable interactions.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Add more certificate cards as needed -->
         </div>
-    </section>
+    </div>
+
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="certificateModal2" tabindex="-1" aria-labelledby="certificateModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModalLabel2">HackerRank Software Engineer Intern</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-container">
+                        <div class="modal-body-image">
+                            <img src="img/HackerRank Software Engineer Intern Certificate.jpg" alt="Certificate Image">
+                        </div>
+                        <div class="modal-body-text">
+                            <p>
+                                I completed an online certification course through HackerRank for Software Engineering Intern. It was a valuable learning experience, and I’m pleased to share that I successfully passed the course. This achievement not only enhanced my technical skills but also deepened my understanding of software engineering practices, furthering my expertise in the field.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="certificateModal3" tabindex="-1" aria-labelledby="certificateModalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModalLabel3">HackerRank Problem Solving Basic</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-container">
+                        <div class="modal-body-image">
+                            <img src="img/HackerRank Problem Solving Basic.jpg" alt="Certificate Image">
+                        </div>
+                        <div class="modal-body-text">
+                            <p>
+                                I earned a Problem Solving (Basic) Certificate from HackerRank. This certification demonstrates my proficiency in fundamental problem-solving techniques and algorithms. The course was instrumental in sharpening my analytical skills and enhancing my ability to tackle programming challenges effectively.
+                            </p>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Contact Section -->
     <section id="contact" class="container my-5 fade-in-section">
@@ -148,7 +324,7 @@
 
 
     <!-- Back-to-Top Button -->
-    <button id="back-to-top" class="btn btn-primary">⇧</button>
+    <button id="back-to-top" class="btn btn-primary"></button>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
