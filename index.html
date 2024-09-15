@@ -66,6 +66,7 @@
     </section>
 
 
+
     <!-- About Me Section -->
     <section id="about" class="container my-5 fade-in-section">
         <div class="row">
@@ -122,22 +123,29 @@
     <!-- Contact Section -->
     <section id="contact" class="container my-5 fade-in-section">
         <h2>Contact Me</h2>
-        <form id="contact-form">
-            <div class="mb-3">
-                <label for="name" class="form-label">Your Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <div id="contact-content">
+            <form id="contact-form">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" disabled>Submit</button>
+            </form>
+        </div>
     </section>
+
+    <!-- Notification Section -->
+    <div id="success-message" class="hidden">Your message has been sent successfully. Thank you for contacting me!</div>    
+
+
 
     <!-- Back-to-Top Button -->
     <button id="back-to-top" class="btn btn-primary">⇧</button>

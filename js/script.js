@@ -152,53 +152,81 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-/// Load EmailJS SDK
+// Load EmailJS SDK
 (function() {
-    emailjs.init("zAO26tE049kwk--1M"); // Replace with your User ID from the Account page
+    emailjs.init("zAO26tE049kwk--1M"); // Replace with your User ID
 })();
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
+// Get form, button, and success message elements
+const form = document.getElementById('contact-form');
+const submitButton = form.querySelector('button[type="submit"]');
+const successMessage = document.getElementById('success-message');
+const contactSection = document.getElementById('contact');
+const contactContent = document.getElementById('contact-content');
+
+// Enable submit button only when all fields are filled
+form.addEventListener('input', () => {
+    const isFormValid = form.checkValidity();
+    submitButton.disabled = !isFormValid;
+});
+
+form.addEventListener('submit', function(event) {
     event.preventDefault();
-    const form = this;
-    
+
     // Log form data for debugging
-    console.log('Form data:', {
+    const formData = {
         name: form.name.value,
         email: form.email.value,
         message: form.message.value
-    });
-
-    // Prepare the template parameters
-    const templateParams = {
-        subject: "A person wants to connect with you from your website",
-        to_email: "jemuel.olaybar@gmail.com", // Your email
-        to_name: "Jemuel Olaybar",
-        from_name: form.name.value,
-        from_email: form.email.value,
-        message: form.message.value
     };
+    console.log('Form data:', formData);
 
-    // Log template parameters for debugging
-    console.log('Template parameters:', templateParams);
-
-    // Send email to you
-    emailjs.send("service_4d5sfeb", "email_to_jem", templateParams)
+    // 1. Send "email_to_jem" (This goes to YOUR email, not the sender's)
+    emailjs.send("service_4d5sfeb", "email_to_jem", {
+        to_email: "jemuel.olaybar@gmail.com",  // Your email address (hardcoded)
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message
+    })
     .then(function(response) {
         console.log('Email sent to you successfully', response);
-       
-        // Send auto-reply to sender's email
+
+        // 2. After sending "email_to_jem", send the "auto_reply" to the sender
         return emailjs.send("service_4d5sfeb", "auto_reply", {
-            to_name: form.name.value,
-            to_email: form.email.value, // This sends the auto-reply to the form submitter's email
+            to_name: formData.name,
+            to_email: formData.email,  // This sends the auto-reply to the form submitter
             from_name: "Jemuel Olaybar",  // Your name
-            from_email: "jemuel.olaybar@gmail.com",  // Your email
+            from_email: "jemuel.olaybar@gmail.com",  // Your email address
             reply_message: "Thank you for contacting me. I will get back to you soon."
         });
     })
     .then(function(response) {
         console.log('Auto-reply sent successfully', response);
-        alert('Your message has been sent successfully. Thank you for contacting me!');
-        form.reset();
+
+        // Animate the contact section into an envelope
+        contactSection.classList.add('envelope-animation');
+
+        // Hide form content during animation
+        contactContent.style.display = 'none';
+
+        // Show success message after the envelope flies away
+        setTimeout(() => {
+            successMessage.classList.add('show');
+        }, 3000);  // 3 seconds to complete the animation
+
+        // Reset the form and return the contact section to its original state
+        setTimeout(() => {
+            // Remove envelope animation class to restore the original form
+            contactSection.classList.remove('envelope-animation');
+            contactContent.style.display = 'block';  // Show form again
+            form.reset();
+            submitButton.disabled = true;  // Disable button again after reset
+
+            // Hide the success message after a delay (e.g., 5 seconds)
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 3000);  // Hide the success message after 3 seconds
+        }, 5000);  // Delay of 5 seconds to match the animation
     })
     .catch(function(error) {
         console.error('Error:', error);
