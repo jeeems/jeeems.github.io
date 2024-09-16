@@ -261,6 +261,61 @@ document.getElementById("downloadLink").addEventListener("click", function(e) {
     }
 });
 
+document.getElementById("downloadCV").addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent default link behavior
+    const userConfirmed = confirm("Do you want to download Jemuel's CV?");
+    if (userConfirmed) {
+        window.location.href = "files/Olaybar, Jemuel G.(Resume).pdf"; // Link to your APK file
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeToggleDesktop = document.getElementById('darkModeToggleDesktop');
+    const body = document.body;
+
+    // Function to set dark mode
+    function setDarkMode(isDark) {
+        body.classList.toggle('dark-mode', isDark);
+        localStorage.setItem('darkMode', isDark);
+        updateToggleIcons(isDark);
+    }
+
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+        const isDark = !body.classList.contains('dark-mode');
+        setDarkMode(isDark);
+    }
+
+    // Function to update toggle button icons
+    function updateToggleIcons(isDark) {
+        const icon = isDark ? 'fa-sun' : 'fa-moon';
+        darkModeToggle.innerHTML = `<i class="fas ${icon}"></i>`;
+        darkModeToggleDesktop.innerHTML = `<i class="fas ${icon}"></i>`;
+    }
+
+    // Check for saved dark mode preference
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode !== null) {
+        setDarkMode(savedDarkMode === 'true');
+    } else {
+        // If no preference is saved, check system preference
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setDarkMode(prefersDarkMode);
+    }
+
+    // Add click event listeners to both toggle buttons
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+    darkModeToggleDesktop.addEventListener('click', toggleDarkMode);
+
+    // Listen for system color scheme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+        if (localStorage.getItem('darkMode') === null) {
+            setDarkMode(e.matches);
+        }
+    });
+});
+
 
 
 // Load EmailJS SDK
