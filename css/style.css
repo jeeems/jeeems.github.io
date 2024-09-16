@@ -11,17 +11,14 @@
 body {
     margin: 0;
     padding: 0;
+    padding-top: 60px;
     font-family: 'Raleway', sans-serif; /* Apply Raleway font */
     overflow-x: hidden;
     background-color: #fcfaf5;
+    position: relative;
 }
 
-/* Fixed Navbar */
-.navbar {
-    z-index: 1030; /* Ensure navbar is above other content */
-    background-color: var(--secondary-color) !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+
 
 /* Animations */
 @keyframes fadeInUp {
@@ -33,6 +30,18 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Ensure that the sections are not overlapped by the fixed navbar */
+section {
+    padding-top: 80px; /* Adjust this value based on the height of your navbar */
+    margin-top: -80px; /* Adjust this value based on the height of your navbar */
+}
+
+/* Adjust sections to be visible when clicking on anchor links */
+#about, #projects, #certificates, #contact {
+    padding-top: 80px; /* Adjust this value based on the height of your navbar */
+    margin-top: -80px; /* Adjust this value based on the height of your navbar */
 }
 
 /* Adjust for fixed navbar */
@@ -222,6 +231,8 @@ body {
 
 /* Navbar */
 .navbar {
+    z-index: 1030; /* Ensure navbar is above other content */
+    background-color: var(--secondary-color) !important;
     height: 60px; /* Set a fixed height */
     display: flex;
     align-items: center;
@@ -281,6 +292,24 @@ body {
     font-weight: bold;
     color: #000; /* Bootstrap primary color */
 }
+
+/* Navbar Items Hover Effect */
+.navbar-nav .nav-link {
+    font-weight: normal; /* Default font weight */
+    transition: text-shadow 0.2s ease, color 0.2s ease; /* Smooth transition */
+    padding-left: 15px; /* Add some padding */
+    padding-right: 15px; /* Add some padding */
+    min-width: 100px; /* Adjust as necessary */
+    text-align: center; /* Center the text */
+}
+
+/* Hover State for Menu Items */
+.navbar-nav .nav-link:hover {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Simulate bold effect */
+    color: #000; /* Optional: Change the color on hover */
+}
+
+
 
 
 /* Fade-in Animation */
@@ -565,6 +594,7 @@ body {
 /* Smooth scrolling effect */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 60px;
 }
 
 
@@ -754,6 +784,75 @@ html {
     }
 }
 
+@media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 55px;
+        left: 0;
+        right: 0;
+        background-color: #f8f9fa;
+        padding: 0;
+        overflow: hidden;
+        transition: transform 0.1s ease, opacity 0.1s ease;
+        transform: translateY(-20px); /* Start position off-screen */
+        max-height: 0;
+        opacity: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        z-index: 1020; /* Ensure the menu stays below the navbar */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for the expanded menu */
+    }
+
+    .navbar-collapse.show {
+        transform: translateY(0); /* Slide to the default position */
+        transition: transform 0.1s ease-in, opacity 0.1s ease-in, max-height 0.1s ease-in; /* Smooth transitions */;
+        max-height: 300px; /* Enough space for the items */
+        opacity: 1;
+    }
+
+    /* Ensure smooth transition when menu is hidden */
+.navbar-collapse:not(.show) {
+    transform: translateY(-20px); /* Pull up when closing */
+    opacity: 0; /* Fade out */
+    max-height: 0; /* Ensure it's collapsed */
+    transition: transform 0.1s ease, opacity 0.1s ease, max-height 0.1s ease; /* Consistent transition */
+}
+
+    .navbar-nav {
+        padding: 10px 0;
+    }
+
+    .navbar-nav .nav-item {
+        padding: 5px 15px;
+        transition: padding 0.1s ease;
+    }
+
+    body {
+        padding-top: 55px;
+    }
+
+    .hero-section {
+        margin-top: -55px;
+    }
+    /* Navbar Items Hover Effect */
+    .navbar-nav .nav-link {
+        font-weight: normal; /* Default font weight */
+        transition: text-shadow 0.2s ease, color 0.2s ease; /* Smooth transition */
+        padding-left: 15px; /* Add some padding */
+        padding-right: 15px; /* Add some padding */
+        min-width: 100px; /* Adjust as necessary */
+        text-align: left;
+    }
+
+    /* Hover State for Menu Items */
+    .navbar-nav .nav-link:hover {
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Simulate bold effect */
+        color: #000; /* Optional: Change the color on hover */
+    }
+}
+
+
+
 /* Responsive adjustments for tablets and medium devices */
 @media (max-width: 768px) {
     .navbar {
@@ -859,6 +958,7 @@ html {
         align-content: center;
     }
 
+    
 
 }
 
@@ -915,5 +1015,22 @@ html {
 #about img {
     border-radius: 10px;
 }
+
+/* Footer Styles */
+.footer {
+    background-color: #f8f9fa; /* Light background color for the footer */
+    color: #000; /* Text color */
+    position: relative; /* Ensure it's placed at the bottom */
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0; /* Optional: a thin border on top */
+    font-family: 'Raleway';
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem; /* Slightly smaller font size */
+}
+
 
 

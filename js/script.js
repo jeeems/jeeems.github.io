@@ -141,6 +141,56 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.getElementById('navbarNav');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            navbarCollapse.classList.add('show');
+        } else {
+            navbarCollapse.classList.remove('show');
+        }
+        navbarToggler.setAttribute('aria-expanded', isMenuOpen);
+    }
+
+    // Toggle the menu on clicking the toggler button
+    navbarToggler.addEventListener('click', function(event) {
+        event.preventDefault();
+        toggleMenu();
+    });
+
+    // Close the menu when a link is clicked (for mobile)
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 992 && isMenuOpen) {
+                toggleMenu();
+            }
+        });
+    });
+
+    // Close the menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isClickInside = navbarCollapse.contains(event.target) || navbarToggler.contains(event.target);
+        if (!isClickInside && isMenuOpen) {
+            toggleMenu();
+        }
+    });
+
+    // Adjust menu on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 992) {
+            navbarCollapse.classList.add('show');
+        } else if (!isMenuOpen) {
+            navbarCollapse.classList.remove('show');
+        }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
     const fadeInSections = document.querySelectorAll('.fade-in-section');
     
     const fadeInOptions = {
