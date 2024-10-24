@@ -265,7 +265,7 @@ document.getElementById("downloadCV").addEventListener("click", function(e) {
     e.preventDefault(); // Prevent default link behavior
     const userConfirmed = confirm("Do you want to download Jemuel's CV?");
     if (userConfirmed) {
-        window.location.href = "files/Olaybar, Jemuel G. (Resume).pdf"; // Link to your APK file
+        window.location.href = "files/Olaybar, Jemuel G. (Resume).pdf"; // Link to your CV file
     }
 });
 
