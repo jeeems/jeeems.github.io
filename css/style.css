@@ -127,7 +127,7 @@ section {
     height: auto;
     object-fit: cover;
     object-position: top center; /* Position the image to show the face */
-    transform: translateY(10%); /* Move the image down slightly to center the face */
+    /* transform: translateY(10%); Move the image down slightly to center the face */
 }
 
 .text-content {
