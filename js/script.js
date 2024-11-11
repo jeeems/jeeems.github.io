@@ -317,6 +317,47 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Frontend Skills Toggle
+const moreFrontendSkillsButton = document.getElementById('moreFrontendSkillsButton');
+const hiddenFrontendSkills = document.querySelectorAll('#frontend-skills .hidden-skill');
+
+moreFrontendSkillsButton.addEventListener('click', function() {
+  hiddenFrontendSkills.forEach(skill => {
+    skill.classList.toggle('show');
+  });
+  if (hiddenFrontendSkills[0].classList.contains('show')) {
+    moreFrontendSkillsButton.innerHTML = '<i class="fa-solid fa-angle-up"></i> Show Less';
+    moreFrontendSkillsButton.classList.add('show-less');
+    document.querySelector('#frontend-skills .skills-grid').appendChild(moreFrontendSkillsButton);
+  } else {
+    moreFrontendSkillsButton.innerHTML = '<i class="fa-solid fa-angle-down"></i> More Skills';
+    moreFrontendSkillsButton.classList.remove('show-less');
+    document.querySelector('#frontend-skills .skills-grid').insertBefore(moreFrontendSkillsButton, document.querySelector('#frontend-skills .skills-grid .skill-item:nth-child(5)'));
+  }
+});
+
+// Backend Skills Toggle
+const moreBackendSkillsButton = document.getElementById('moreBackendSkillsButton');
+const hiddenBackendSkills = document.querySelectorAll('#backend-skills .hidden-skill');
+
+moreBackendSkillsButton.addEventListener('click', function() {
+  hiddenBackendSkills.forEach(skill => {
+    skill.classList.toggle('show');
+  });
+  if (hiddenBackendSkills[0].classList.contains('show')) {
+    moreBackendSkillsButton.innerHTML = '<i class="fa-solid fa-angle-up"></i> Show Less';
+    moreBackendSkillsButton.classList.add('show-less');
+    document.querySelector('#backend-skills .skills-grid').appendChild(moreBackendSkillsButton);
+  } else {
+    moreBackendSkillsButton.innerHTML = '<i class="fa-solid fa-angle-down"></i> More Skills';
+    moreBackendSkillsButton.classList.remove('show-less');
+    document.querySelector('#backend-skills .skills-grid').insertBefore(moreBackendSkillsButton, document.querySelector('#backend-skills .skills-grid .skill-item:nth-child(5)'));
+  }
+});
+
+
+
+
 
 // Load EmailJS SDK
 (function() {
