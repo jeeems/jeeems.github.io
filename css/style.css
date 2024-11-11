@@ -200,6 +200,7 @@ section h2 {
 
 .text-content p {
     animation-delay: 1.1s;
+    color: orangered;
 }
 
 .button-container {
