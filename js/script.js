@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const fadeInSections = document.querySelectorAll('.fade-in-section');
     
     const fadeInOptions = {
-        threshold: 0.5
+        threshold: 0.1
     };
 
     const fadeInObserver = new IntersectionObserver(function(entries, observer) {
