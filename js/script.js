@@ -260,6 +260,13 @@ document.getElementById("downloadLink").addEventListener("click", function(e) {
         window.location.href = "files/[APK FILE] Taskmate.apk"; // Link to your APK file
     }
 });
+document.getElementById("downloadLink1").addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent default link behavior
+    const userConfirmed = confirm("Do you want to download the Centsible APK?");
+    if (userConfirmed) {
+        window.location.href = "files/[APK FILE] Centsible.apk"; // Link to your APK file
+    }
+});
 
 document.getElementById("downloadCV").addEventListener("click", function(e) {
     e.preventDefault(); // Prevent default link behavior

@@ -190,21 +190,21 @@ section h2 {
 }
 
 .text-content h5 {
-    animation-delay: 0.7s;
+    animation-delay: 0.5s;
 }
 
 .text-content h1 {
-    animation-delay: 0.9s;
+    animation-delay: 1s;
     color: orangered;
 }
 
 .text-content p {
-    animation-delay: 1.1s;
-    color: orangered;
+    animation-delay: 1.25s;
+    /* color: orangered; */
 }
 
 .button-container {
-    animation-delay: 1.3s;
+    animation-delay: 1.5s;
 }
 
 /* Fade-in animation for other sections */
@@ -436,7 +436,7 @@ section h2 {
     /* Ensure proper stacking context */
     width: 100%;
     /* Makes the image responsive */
-    max-height: 200px;
+    height: 200px;
     /* Ensures the max height does not exceed 200px */
     transition: transform 0.5s ease;
     /* Smooth transition for zoom effect */
@@ -495,7 +495,7 @@ section h2 {
 /* Ensure card body fills the remaining space and text is aligned properly */
 .card-body {
     position: relative;
-    padding: 1rem;
+    padding: 15px;
     flex-grow: 1;
     /* Grow card body to fill available space */
     display: flex;
@@ -503,8 +503,20 @@ section h2 {
     justify-content: space-between;
 }
 
+.card-title {
+    margin-bottom: 10px; /* Consistent spacing between title and text */
+}
+
+.card-text {
+    margin-top: 0; /* Remove any unintended top margin */
+}
+
 .card-body p {
     text-align: justify;
+}
+
+#projects .col-md-4 {
+    margin-bottom: 30px; /* Adds padding between project items */
 }
 
 
@@ -671,6 +683,7 @@ section h2 {
 
 .card-title {
     font-weight: bold;
+    color: orangered;
 }
 
 /* Styles for the modal header */
@@ -736,13 +749,14 @@ section h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.25em;
+    font-size: 1em;
     padding: 10px;
     border-radius: 8px;
     background-color: #ffffff;
     transition: transform 1s;
     text-align: center;
     cursor: default;
+    user-select: none;
 }
 
 .skill-item:hover {
@@ -755,7 +769,7 @@ section h2 {
 }
 
 .skill-item i {
-    font-size: 1em;
+    font-size: 1.25em;
     color: #e63946;
     padding: 10px;
 }
@@ -808,7 +822,7 @@ section h2 {
     display: flex;
     align-items: center; /* Aligns items vertically in the center */
     justify-content: center; /* Centers the content horizontally */
-    font-size: 1.25em; /* Match font size to skills section */
+    font-size: 1em; /* Match font size to skills section */
     padding: 20px; /* Padding inside each service item */
     border-radius: 12px; /* Rounded edges for each service item */
     transition: transform 0.2s;
@@ -821,6 +835,11 @@ section h2 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     cursor: default;
+    user-select: none;
+}
+
+.service-item:hover i{
+    animation: bounce 0.5s ease infinite alternate;
 }
 
 .service-item i {
@@ -1250,6 +1269,10 @@ html {
         transform: translateY(-50%);
     }
 
+    .text-content {
+        max-width: 100%;
+    }
+
 
 }
 
@@ -1341,6 +1364,9 @@ html {
         margin-bottom: 1em;
         /* Adjust spacing between paragraphs */
     }
+    #projects .col-md-4 {
+        margin-bottom: 30px; /* Adds padding between project items */
+    }
 
     .modal-body-container {
         flex-direction: column;
@@ -1425,6 +1451,9 @@ html {
         font-size: 0.9em;
     }
 
+    .text-content h1 {
+        font-size: 36px;
+    }
 
 
 }
@@ -1478,6 +1507,12 @@ html {
         /* Adjust font size for smaller screens */
         justify-content: center;
         text-align: center;
+    }
+    .text-content {
+        max-width: 100%;
+    }
+    .text-content h1 {
+        font-size: 32px;
     }
 }
 
