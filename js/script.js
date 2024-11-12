@@ -409,8 +409,8 @@ form.addEventListener('submit', function(event) {
         return emailjs.send("service_4d5sfeb", "auto_reply", {
             to_name: formData.name,
             to_email: formData.email,  // This sends the auto-reply to the form submitter
-            from_name: "Jemuel Olaybar",  // Your name
-            from_email: "jemuel.olaybar@gmail.com",  // Your email address
+            from_name: "jems_autoreply",  // Your name
+            from_email: "jem_autoreply@autoreply.com",  // Your email address
             reply_message: "Thank you for contacting me. I will get back to you soon."
         });
     })
