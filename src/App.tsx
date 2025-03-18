@@ -692,12 +692,23 @@ function App() {
         ref={homeRef}
         id="home"
         className="relative h-screen flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: "url('/assets/me.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        {/* <header
+        ref={homeRef}
+        id="home"
+        className="relative h-screen flex items-center justify-center overflow-hidden"
       >
         <img
           src="/assets/me.jpg"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover bg-fixed"
-        />
+        /> */}
         <div className="absolute inset-0 bg-black/60 z-10"></div>
 
         {/* Parallax floating elements */}
