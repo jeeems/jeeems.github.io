@@ -377,8 +377,8 @@ function App() {
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -692,13 +692,12 @@ function App() {
         ref={homeRef}
         id="home"
         className="relative h-screen flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: "url('/assets/me.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
       >
+        <img
+          src="/assets/me.jpg"
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover bg-fixed"
+        />
         <div className="absolute inset-0 bg-black/60 z-10"></div>
 
         {/* Parallax floating elements */}
