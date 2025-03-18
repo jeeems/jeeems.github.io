@@ -44,6 +44,7 @@ function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef(null);
+  const [bgPosition, setBgPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     // Check system preference on initial load
@@ -154,6 +155,10 @@ function App() {
       } else {
         navbar.classList.remove("scrolled");
       }
+
+      // Add this calculation for background parallax
+      const yPos = -window.scrollY * 0.15;
+      setBgPosition({ x: 0, y: yPos });
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -692,13 +697,21 @@ function App() {
         ref={homeRef}
         id="home"
         className="relative h-screen flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: "url('/assets/me.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
       >
+        {/* Background image with fixed attachment and fallback */}
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundImage: `url('/assets/me.jpg')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
+            // Safari/iOS specific fallback
+            "@supports (-webkit-touch-callout: none)": {
+              backgroundAttachment: "scroll",
+            },
+          }}
+        />
         {/* <header
         ref={homeRef}
         id="home"
@@ -713,11 +726,11 @@ function App() {
 
         {/* Parallax floating elements */}
         <div
-          className="absolute w-32 h-32 rounded-full bg-[#f29028]/20 blur-3xl top-1/4 left-1/4"
+          className="absolute w-32 h-32 rounded-full bg-[#f29028]/20 blur-3xl top-1/4 left-1/4 z-10"
           style={{ transform: `translateY(${scrollY * 0.2}px)` }}
         ></div>
         <div
-          className="absolute w-40 h-40 rounded-full bg-blue-500/20 blur-3xl bottom-1/4 right-1/4"
+          className="absolute w-40 h-40 rounded-full bg-blue-500/20 blur-3xl bottom-1/4 right-1/4 z-10"
           style={{ transform: `translateY(${scrollY * -0.15}px)` }}
         ></div>
 
@@ -738,7 +751,7 @@ function App() {
             </motion.h2>
 
             <motion.h1
-              className="text-4xl md:text-5xl font-bold mb-4 text-white"
+              className="text-3xl md:text-5xl font-bold mb-4 text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 1 }}
@@ -747,7 +760,7 @@ function App() {
             </motion.h1>
 
             <motion.p
-              className="text-1.5xl text-white opacity-90 mb-8"
+              className="text-1xl text-white opacity-90 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 1 }}
