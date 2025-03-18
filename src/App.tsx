@@ -719,7 +719,7 @@ function App() {
             transition={{ duration: 1, ease: "easeOut" }} // Smooth transition
           >
             <motion.h2
-              className="text-1.5xl text-white mb-2 opacity-90"
+              className="text-1xl text-white mb-2 opacity-90"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 1 }}
