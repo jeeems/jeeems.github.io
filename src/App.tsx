@@ -244,7 +244,7 @@ function App() {
         "Mobile app for tracking personal finances and budgeting",
       description:
         "Centsible is a mobile application for tracking personal finances, allowing users to manage their budget, track savings, and monitor expenses and bills. With user-friendly features, Centsible simplifies budgeting to help users maintain financial control and meet their savings goals effectively.",
-      image: "assets/centsible-logo.jpg",
+      image: "/assets/centsible-logo.jpg",
       tools: ["Flutter", "Firebase", "Dart", "Kotlin", "Git", "GitHub"],
     },
     {
@@ -253,7 +253,7 @@ function App() {
         "Community platform for requesting and managing barangay documents online",
       description:
         "The Barangay Document Request System is a community-focused platform that enables residents to request and manage barangay documents online. This system streamlines the document request process, making it more accessible and efficient for local residents and barangay officials.",
-      image: "assets/barangay-document-request.jpg",
+      image: "/assets/barangay-document-request.jpg",
       tools: [
         "HTML5",
         "CSS3",
@@ -271,7 +271,7 @@ function App() {
         "System for managing hotel operations including reservations and check-ins",
       description:
         "This Hotel Management System is designed to optimize hotel operations by managing reservations, check-ins, check-outs, and customer records. It enhances the efficiency of hotel staff and improves customer service by offering a centralized, and automated management tool.",
-      image: "assets/hansa-hotel.jpg",
+      image: "/assets/hansa-hotel.jpg",
       tools: [
         "HTML5",
         "CSS3",
@@ -289,7 +289,7 @@ function App() {
         "Web-based sales and inventory system for a local gas company",
       description:
         "GUFC Solane is a web-based Sales and Inventory Management System designed for a local gas company. Developed in collaboration with PUP San Juan students, the system streamlines inventory tracking, sales processing, and order management. It provides real-time stock monitoring, automated reporting, and an intuitive interface to enhance operational efficiency and minimize discrepancies in inventory and sales records.",
-      image: "assets/solane.jpg",
+      image: "/assets/solane.jpg",
       tools: [
         "Laravel",
         "PHP",
@@ -306,7 +306,7 @@ function App() {
       shortDescription: "Web-based home service provider booking system",
       description:
         "Homease is a web-based home service provider booking platform developed for one of my clients. It connects homeowners with professional service providers for various home maintenance tasks such as plumbing, electrical work, cleaning, and more. The platform offers seamless booking, real-time availability checking, secure payments, and user reviews to ensure quality service. Homease simplifies the process of finding reliable home service providers, enhancing convenience for both customers and service professionals.",
-      image: "assets/homease.jpg",
+      image: "/assets/homease.jpg",
       tools: [
         "Laravel",
         "PHP",
@@ -330,6 +330,7 @@ function App() {
       { name: "C++", icon: <FileJson className="text-gray-500" /> },
       { name: "R Programming", icon: <FileJson className="text-blue-700" /> },
       { name: "Dart", icon: <FileJson className="text-blue-500" /> },
+      { name: "COBOL", icon: <FileJson className="text-green-700" /> },
     ],
     frontend: [
       { name: "ReactJS", icon: <Blocks className="text-blue-400" /> },
@@ -345,6 +346,7 @@ function App() {
       { name: "MySQL", icon: <Database className="text-blue-600" /> },
       { name: "SQLite", icon: <Database className="text-gray-500" /> },
       { name: "Firebase", icon: <Flame className="text-yellow-500" /> },
+      { name: "Spring Boot", icon: <Server className="text-green-600" /> },
     ],
     mobile: [
       { name: "Flutter", icon: <SmartphoneNfc className="text-blue-400" /> },
@@ -359,6 +361,7 @@ function App() {
       },
       { name: "PowerShell", icon: <PanelRight className="text-blue-600" /> },
       { name: "AWS", icon: <Cloud className="text-yellow-500" /> },
+      { name: "Hercules", icon: <PanelRight className="text-gray-500" /> },
     ],
     media: [
       { name: "Adobe Photoshop", icon: <PenTool className="text-blue-600" /> },
@@ -693,7 +696,7 @@ function App() {
         id="home"
         className="relative h-screen flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: "url('/assets/me.jpg')",
+          backgroundImage: "url('/assets/me2.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
@@ -742,7 +745,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 1 }}
             >
-              Web and Mobile Developer
+              Java Fullstack / Mainframe COBOL Developer
             </motion.p>
 
             <motion.button
@@ -788,16 +791,16 @@ function App() {
           </h2>
 
           <p className="text-base md:text-lg leading-relaxed mb-2">
-            I'm a passionate <strong>Web and Mobile Developer</strong>,
-            specializing in creating responsive, user-friendly applications that
-            solve real-world problems. Check out some of my work in the Projects
-            section.
+            Java Fullstack and Mainframe COBOL Developer with hands-on experience
+            building enterprise applications across web and legacy platforms. I work
+            with <strong>Spring Boot, React, and Angular</strong> on the fullstack
+            side and handle COBOL development and modernization using{" "}
+            <strong>Hercules</strong> on the mainframe side.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed mb-2">
-            My expertise spans the full development stack, from designing
-            intuitive user interfaces to implementing robust backend solutions.
-            Feel free to connect with me on{" "}
+            Outside of work I take on freelance projects and collaborations — connect
+            with me on{" "}
             <a
               href="https://linkedin.com/in/jeeems"
               target="_blank"
@@ -806,14 +809,7 @@ function App() {
             >
               LinkedIn
             </a>{" "}
-            or send me an email to discuss potential projects or opportunities.
-          </p>
-
-          <p className="text-base md:text-lg leading-relaxed mb-2">
-            I'm open to <strong>Job</strong> opportunities, freelance projects,
-            and collaborations where I can contribute my skills and expertise.
-            If you have a great project idea or need help with an existing
-            project, don't hesitate to reach out!
+            or send a message below.
           </p>
 
           {/* Contact Button */}
